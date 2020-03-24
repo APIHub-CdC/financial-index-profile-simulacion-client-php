@@ -1,38 +1,38 @@
 <?php
 
-namespace MadurezSimulacion\Client\Model;
+namespace FinancialIndexProfileSimulacion\Client\Model;
 
 use \ArrayAccess;
-use \MadurezSimulacion\Client\ObjectSerializer;
+use \FinancialIndexProfileSimulacion\Client\ObjectSerializer;
 
 class Respuesta implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
     
-    protected static $MadurezSimulacionModelName = 'Respuesta';
+    protected static $FinancialIndexProfileSimulacionModelName = 'Respuesta';
     
-    protected static $MadurezSimulacionTypes = [
+    protected static $FinancialIndexProfileSimulacionTypes = [
         'folio_score' => 'string',
         'folio_consulta' => 'string',
-        'score' => '\MadurezSimulacion\Client\Model\CatalogoScores',
-        'exclusion' => '\MadurezSimulacion\Client\Model\CatalogoExclusion'
+        'score' => '\FinancialIndexProfileSimulacion\Client\Model\CatalogoScores',
+        'exclusion' => '\FinancialIndexProfileSimulacion\Client\Model\CatalogoExclusion'
     ];
     
-    protected static $MadurezSimulacionFormats = [
+    protected static $FinancialIndexProfileSimulacionFormats = [
         'folio_score' => null,
         'folio_consulta' => null,
         'score' => null,
         'exclusion' => null
     ];
     
-    public static function MadurezSimulacionTypes()
+    public static function FinancialIndexProfileSimulacionTypes()
     {
-        return self::$MadurezSimulacionTypes;
+        return self::$FinancialIndexProfileSimulacionTypes;
     }
     
-    public static function MadurezSimulacionFormats()
+    public static function FinancialIndexProfileSimulacionFormats()
     {
-        return self::$MadurezSimulacionFormats;
+        return self::$FinancialIndexProfileSimulacionFormats;
     }
     
     protected static $attributeMap = [
@@ -73,7 +73,7 @@ class Respuesta implements ModelInterface, ArrayAccess
     
     public function getModelName()
     {
-        return self::$MadurezSimulacionModelName;
+        return self::$FinancialIndexProfileSimulacionModelName;
     }
     
     

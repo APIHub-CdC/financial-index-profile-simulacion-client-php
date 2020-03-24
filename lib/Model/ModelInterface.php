@@ -1,15 +1,15 @@
 <?php
 
-namespace MadurezSimulacion\Client\Model;
+namespace FinancialIndexProfileSimulacion\Client\Model;
 
 interface ModelInterface
 {
     
     public function getModelName();
     
-    public static function MadurezSimulacionTypes();
+    public static function FinancialIndexProfileSimulacionTypes();
     
-    public static function MadurezSimulacionFormats();
+    public static function FinancialIndexProfileSimulacionFormats();
     
     public static function attributeMap();
     

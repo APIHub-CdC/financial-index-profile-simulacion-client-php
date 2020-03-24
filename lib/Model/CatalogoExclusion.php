@@ -1,7 +1,7 @@
 <?php
 
-namespace MadurezSimulacion\Client\Model;
-use \MadurezSimulacion\Client\ObjectSerializer;
+namespace FinancialIndexProfileSimulacion\Client\Model;
+use \FinancialIndexProfileSimulacion\Client\ObjectSerializer;
 
 class CatalogoExclusion
 {

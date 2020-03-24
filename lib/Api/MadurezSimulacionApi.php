@@ -1,6 +1,6 @@
 <?php
 
-namespace MadurezSimulacion\Client\Api;
+namespace FinancialIndexProfileSimulacion\Client\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -8,20 +8,20 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use MadurezSimulacion\Client\ApiException;
-use MadurezSimulacion\Client\Configuration;
-use MadurezSimulacion\Client\HeaderSelector;
-use MadurezSimulacion\Client\ObjectSerializer;
+use FinancialIndexProfileSimulacion\Client\ApiException;
+use FinancialIndexProfileSimulacion\Client\Configuration;
+use FinancialIndexProfileSimulacion\Client\HeaderSelector;
+use FinancialIndexProfileSimulacion\Client\ObjectSerializer;
 
 class MadurezSimulacionApi
 {
-    
+
     protected $client;
-    
+
     protected $config;
-    
+
     protected $headerSelector;
-    
+
     public function __construct(
         ClientInterface $client = null,
         Configuration $config = null,
@@ -31,21 +31,21 @@ class MadurezSimulacionApi
         $this->config = $config ?: new Configuration();
         $this->headerSelector = $selector ?: new HeaderSelector();
     }
-    
+
     public function getConfig()
     {
         return $this->config;
     }
-    
+
     public function madurez($x_api_key, $folio_consulta)
     {
         list($response) = $this->madurezWithHttpInfo($x_api_key, $folio_consulta);
         return $response;
     }
-    
+
     public function madurezWithHttpInfo($x_api_key, $folio_consulta)
     {
-        $returnType = '\MadurezSimulacion\Client\Model\Respuesta';
+        $returnType = '\FinancialIndexProfileSimulacion\Client\Model\Respuesta';
         $request = $this->madurezRequest($x_api_key, $folio_consulta);
         try {
             $options = $this->createHttpClientOption();
@@ -91,7 +91,7 @@ class MadurezSimulacionApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MadurezSimulacion\Client\Model\Respuesta',
+                        '\FinancialIndexProfileSimulacion\Client\Model\Respuesta',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -99,7 +99,7 @@ class MadurezSimulacionApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MadurezSimulacion\Client\Model\Errores',
+                        '\FinancialIndexProfileSimulacion\Client\Model\Errores',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -107,7 +107,7 @@ class MadurezSimulacionApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MadurezSimulacion\Client\Model\Errores',
+                        '\FinancialIndexProfileSimulacion\Client\Model\Errores',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -115,7 +115,7 @@ class MadurezSimulacionApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MadurezSimulacion\Client\Model\Errores',
+                        '\FinancialIndexProfileSimulacion\Client\Model\Errores',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -124,7 +124,7 @@ class MadurezSimulacionApi
             throw $e;
         }
     }
-    
+
     public function madurezAsync($x_api_key, $folio_consulta)
     {
         return $this->madurezAsyncWithHttpInfo($x_api_key, $folio_consulta)
@@ -134,10 +134,10 @@ class MadurezSimulacionApi
                 }
             );
     }
-    
+
     public function madurezAsyncWithHttpInfo($x_api_key, $folio_consulta)
     {
-        $returnType = '\MadurezSimulacion\Client\Model\Respuesta';
+        $returnType = '\FinancialIndexProfileSimulacion\Client\Model\Respuesta';
         $request = $this->madurezRequest($x_api_key, $folio_consulta);
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -174,7 +174,7 @@ class MadurezSimulacionApi
                 }
             );
     }
-    
+
     protected function madurezRequest($x_api_key, $folio_consulta)
     {
         if ($x_api_key === null || (is_array($x_api_key) && count($x_api_key) === 0)) {
@@ -216,12 +216,12 @@ class MadurezSimulacionApi
         }
         if (isset($_tempBody)) {
             $httpBody = $_tempBody;
-            
-            if($headers['Content-Type'] === 'application/json') {
+
+            if ($headers['Content-Type'] === 'application/json') {
                 if ($httpBody instanceof \stdClass) {
                     $httpBody = \GuzzleHttp\json_encode($httpBody);
                 }
-                if(is_array($httpBody)) {
+                if (is_array($httpBody)) {
                     $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
                 }
             }
@@ -258,7 +258,7 @@ class MadurezSimulacionApi
             $httpBody
         );
     }
-    
+
     protected function createHttpClientOption()
     {
         $options = [];
