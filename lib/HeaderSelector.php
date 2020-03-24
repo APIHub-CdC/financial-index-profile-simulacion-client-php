@@ -1,6 +1,6 @@
 <?php
 
-namespace MadurezSimulacion\Client;
+namespace FinancialIndexProfileSimulacion\Client;
 
 use \Exception;
 

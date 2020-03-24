@@ -1,34 +1,34 @@
 <?php
 
-namespace MadurezSimulacion\Client\Model;
+namespace FinancialIndexProfileSimulacion\Client\Model;
 
 use \ArrayAccess;
-use \MadurezSimulacion\Client\ObjectSerializer;
+use \FinancialIndexProfileSimulacion\Client\ObjectSerializer;
 
 class Error implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
     
-    protected static $MadurezSimulacionModelName = 'Error';
+    protected static $FinancialIndexProfileSimulacionModelName = 'Error';
     
-    protected static $MadurezSimulacionTypes = [
+    protected static $FinancialIndexProfileSimulacionTypes = [
         'codigo' => 'string',
         'mensaje' => 'string'
     ];
     
-    protected static $MadurezSimulacionFormats = [
+    protected static $FinancialIndexProfileSimulacionFormats = [
         'codigo' => null,
         'mensaje' => null
     ];
     
-    public static function MadurezSimulacionTypes()
+    public static function FinancialIndexProfileSimulacionTypes()
     {
-        return self::$MadurezSimulacionTypes;
+        return self::$FinancialIndexProfileSimulacionTypes;
     }
     
-    public static function MadurezSimulacionFormats()
+    public static function FinancialIndexProfileSimulacionFormats()
     {
-        return self::$MadurezSimulacionFormats;
+        return self::$FinancialIndexProfileSimulacionFormats;
     }
     
     protected static $attributeMap = [
@@ -63,7 +63,7 @@ class Error implements ModelInterface, ArrayAccess
     
     public function getModelName()
     {
-        return self::$MadurezSimulacionModelName;
+        return self::$FinancialIndexProfileSimulacionModelName;
     }
     
     

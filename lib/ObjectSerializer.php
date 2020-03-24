@@ -1,6 +1,6 @@
 <?php
 
-namespace MadurezSimulacion\Client;
+namespace FinancialIndexProfileSimulacion\Client;
 
 class ObjectSerializer
 {
@@ -23,19 +23,19 @@ class ObjectSerializer
             return $data;
         } elseif (is_object($data)) {
             $values = [];
-            $formats = $data::MadurezSimulacionFormats();
-            foreach ($data::MadurezSimulacionTypes() as $property => $MadurezSimulacionType) {
+            $formats = $data::FinancialIndexProfileSimulacionFormats();
+            foreach ($data::FinancialIndexProfileSimulacionTypes() as $property => $FinancialIndexProfileSimulacionType) {
                 $getter = $data::getters()[$property];
                 $value = $data->$getter();
                 if ($value !== null
-                    && !in_array($MadurezSimulacionType, ['DateTime', 'bool', 'boolean', 'byte', 'double', 'float', 'int', 'integer', 'mixed', 'number', 'object', 'string', 'void'], true)
-                    && method_exists($MadurezSimulacionType, 'getAllowableEnumValues')
-                    && !in_array($value, $MadurezSimulacionType::getAllowableEnumValues(), true)) {
-                    $imploded = implode("', '", $MadurezSimulacionType::getAllowableEnumValues());
-                    throw new \InvalidArgumentException("Invalid value for enum '$MadurezSimulacionType', must be one of: '$imploded'");
+                    && !in_array($FinancialIndexProfileSimulacionType, ['DateTime', 'bool', 'boolean', 'byte', 'double', 'float', 'int', 'integer', 'mixed', 'number', 'object', 'string', 'void'], true)
+                    && method_exists($FinancialIndexProfileSimulacionType, 'getAllowableEnumValues')
+                    && !in_array($value, $FinancialIndexProfileSimulacionType::getAllowableEnumValues(), true)) {
+                    $imploded = implode("', '", $FinancialIndexProfileSimulacionType::getAllowableEnumValues());
+                    throw new \InvalidArgumentException("Invalid value for enum '$FinancialIndexProfileSimulacionType', must be one of: '$imploded'");
                 }
                 if ($value !== null) {
-                    $values[$data::attributeMap()[$property]] = self::sanitizeForSerialization($value, $MadurezSimulacionType, $formats[$property]);
+                    $values[$data::attributeMap()[$property]] = self::sanitizeForSerialization($value, $FinancialIndexProfileSimulacionType, $formats[$property]);
                 }
             }
             return (object)$values;
@@ -165,13 +165,13 @@ class ObjectSerializer
         } else {
             $discriminator = $class::DISCRIMINATOR;
             if (!empty($discriminator) && isset($data->{$discriminator}) && is_string($data->{$discriminator})) {
-                $subclass = '\MadurezSimulacion\Client\Model\\' . $data->{$discriminator};
+                $subclass = '\FinancialIndexProfileSimulacion\Client\Model\\' . $data->{$discriminator};
                 if (is_subclass_of($subclass, $class)) {
                     $class = $subclass;
                 }
             }
             $instance = new $class();
-            foreach ($instance::MadurezSimulacionTypes() as $property => $type) {
+            foreach ($instance::FinancialIndexProfileSimulacionTypes() as $property => $type) {
                 $propertySetter = $instance::setters()[$property];
                 if (!isset($propertySetter) || !isset($data->{$instance::attributeMap()[$property]})) {
                     continue;
