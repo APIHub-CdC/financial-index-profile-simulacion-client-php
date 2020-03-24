@@ -1,6 +1,6 @@
 <?php
 
-namespace MadurezSimulacion\Client;
+namespace FinancialIndexProfileSimulacion\Client;
 
 class Configuration
 {
@@ -18,7 +18,7 @@ class Configuration
     
     protected $host = '';
     
-    protected $userAgent = 'MadurezSimulacion-Codegen/1.0.0/php';
+    protected $userAgent = 'FinancialIndexProfileSimulacion-Codegen/1.0.0/php';
     
     protected $debug = false;
     
@@ -159,7 +159,7 @@ class Configuration
     
     public static function toDebugReport()
     {
-        $report  = 'PHP SDK (MadurezSimulacion\Client) Debug Report:' . PHP_EOL;
+        $report  = 'PHP SDK (FinancialIndexProfileSimulacion\Client) Debug Report:' . PHP_EOL;
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
         $report .= '    OpenAPI Spec Version: 1.0.0' . PHP_EOL;
